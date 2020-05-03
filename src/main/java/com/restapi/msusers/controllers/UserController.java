@@ -30,7 +30,6 @@ public class UserController {
 	@Autowired
 	UserRepository userrepo;
 	
-	
 	@GetMapping(value="/users")
 	List<User> getAll(){
 		return userrepo.findAll();
