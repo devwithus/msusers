@@ -90,5 +90,15 @@ public class UserController {
 		
 	}
 	
+	@DeleteMapping(value="/users2/{id}")
+	ResponseEntity<String> delete2(@PathVariable("id") @Min(1) int id) {
+		User user = userrepo.findById(id)
+							.orElseThrow(()->new ResourceNotFoundException("User with ID :"+id+" Not Found!"));
+		
+		userrepo.deleteById(user.getId());
+		return ResponseEntity.ok().body("Employee deleted with success!");
+		
+	}
+	
 
 }
